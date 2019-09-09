@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Header from './Components/Header/Header';
 import routes from './routes'
+import Form from './Components/Form/Form'
 
 export default class App extends Component{
   

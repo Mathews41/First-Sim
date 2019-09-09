@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require('express')
-const dotenv=require('dotenv')
 const cors = require('cors');
 const massive = require('massive')
 const ctrl = require('./controller')
@@ -9,6 +8,7 @@ const ctrl = require('./controller')
 const{ 
     CONNECTION_STRING
 }=process.env
+
 const app = express();
 
 app.use(express.json());
@@ -20,6 +20,7 @@ massive(CONNECTION_STRING).then(dbInstance => {
 })
 //endpoints go under here
 app.get('/api/product',ctrl.getProducts)
+app.get('/api/product/:id', ctrl.getOne)
 app.post('/api/product',ctrl.createProduct)
 app.put('/api/product/:id',ctrl.updateProduct)
 app.delete('/api/product/:id',ctrl.deleteProduct)
